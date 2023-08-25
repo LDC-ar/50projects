@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+	--empty: #cdcccc;
+	--fill: #db990b;
+	--fill2: #fde6b4;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.container {
+	width: 400px;
+	height: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	/* border: 3px solid #111;
+	border-radius: 10px; */
+}
+
+.progress-container {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+}
+.progress-container:before {
+	content: '';
+	width: 100%;
+	height: 4px;
+	position: absolute;
+	background: var(--empty);
+	z-index: -2;
+}
+.progress {
+	width: 0%;
+	height: 4px;
+	position: absolute;
+	background: var(--fill);
+	z-index: -1;
+	transition: all 0.3s ease;
+}
+
+.number {
+	background: white;
+	width: 30px;
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	border: 3px solid var(--empty);
+	pointer-events: none;
+	transition: all 0.5s ease;
+}
+.number.active {
+	border-color: var(--fill);
+	background: var(--fill2);
+	transform: scale(1.1);
+}
+.btn {
+	font-family: inherit;
+	margin: 0.5rem;
+	background: var(--fill);
+	border: none;
+	padding: 0.5em 1em;
+	font-size: 1rem;
+	border-radius: 3px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+.btn:hover {
+	background: var(--empty);
+	color: #111;
+}
+.btn:disabled {
+	background: var(--empty);
+	cursor: not-allowed;
+	pointer-events: none;
+}
